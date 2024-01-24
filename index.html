@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+<style>
+*{
+    padding: 0px;
+    margin: 0px;
+}
+.body{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(7, 224, 231);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+  width: 500px;
+  height: 300px;
+  
+  
+}
+.container h1{
+    color: rgb(26, 25, 25);
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+#cel,#fah,#kel{
+    width: 200px;
+    height: 20px;
+    background-color: rgb(212, 207, 207);
+    padding: 10px;
+    
+    outline: none;
+    border: none;
+    
+    border-bottom: 5px solid rgb(26, 25, 25);
+    cursor: pointer;
+}
+#cel:hover,#fah:hover,#kel:hover{
+    background-color: whitesmoke;
+}
+.container label{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: rgb(26, 25, 25);
+    font-weight: bolder;
+    
+    
+}
+</style>
+
+</head>
+<body>
+    <div class="body">
+        <div class="container">
+            <h1><u>Temperature Converter</u></h1><br><br>
+            <label > Celsius</label>
+<input type="number" value="0" id="cel">
+<br><br>
+<label>Fahrenheit</label>
+<input type="number" value="32" id="fah">
+<br><br>
+<label>kelvin</label>
+<input type="number" value="273.15" id="kel">
+</div>
+</div>
+
+
+<script>
+    var cel=document.getElementById('cel');
+    var fah=document.getElementById('fah');
+    var kel=document.getElementById('kel');
+
+
+    cel.addEventListener('input',function(){
+    
+        let c=this.value;
+        let f=(c*9/5)+32;
+        let k=c + 273.15;
+        if(!Number.isInteger(f)){
+            f=f.toFixed(4);
+        }
+    fah.value=f;
+    if(!Number.isInteger(k)){
+            k=k.toFixed(4);
+        }
+    kel.value=k;
+    })
+
+    fah.addEventListener('input',function(){
+    
+    let f=this.value;
+    let c=(f - 32) * 5/9;
+    let k=(f - 32) * 5/9 + 273.15
+    if(!Number.isInteger(c)){
+        c=c.toFixed(4);
+    }
+cel.value=c;
+if(!Number.isInteger(k)){
+            k=k.toFixed(4);
+        }
+kel.value=k;
+})
+
+kel.addEventListener('input',function(){
+    
+    let k=this.value;
+    let c=k - 273.15;
+    let f=(k - 273.15) * 9/5 + 32 
+    if(!Number.isInteger(c)){
+        c=c.toFixed(4);
+    }
+cel.value=c;
+if(!Number.isInteger(f)){
+            f=f.toFixed(4);
+        }
+fah.value=f;
+})
+</script>
+</body>
+</html>
